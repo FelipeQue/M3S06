@@ -1,6 +1,6 @@
 package br.senai.lab365.exercicio02;
 
-public class Main {
+public class MedicamentoTeste {
     public static void main(String[] args) {
 
         System.out.println(getDipirona().getBula());
@@ -8,7 +8,7 @@ public class Main {
     }
 
     public static Medicamento getDipirona() {
-        return new MedicamentoBuilder()
+        return MedicamentoBuilder.create()
                 .setNome("Dipirona Sódica 500mg")
                 .setDosagem(500)
                 .setUnidadeDosagem("mg")

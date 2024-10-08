@@ -8,7 +8,11 @@ public class MedicamentoBuilder {
     private String nomeLaboratorio;
     private String bula;
 
-    public MedicamentoBuilder() {
+    private MedicamentoBuilder() {
+    }
+
+    public static MedicamentoBuilder create() {
+        return new MedicamentoBuilder();
     }
 
     public MedicamentoBuilder setNome(String nome) {
