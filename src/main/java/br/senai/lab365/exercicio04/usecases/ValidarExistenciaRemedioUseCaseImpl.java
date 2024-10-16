@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidarExistenciaRemedioImpl implements ValidarExistenciaRemedio {
+public class ValidarExistenciaRemedioUseCaseImpl implements ValidarExistenciaRemedioUseCase {
 
     private final RemedioRepository remedioRepository;
     private final SalvarRemedioUseCase salvarRemedioUseCase;
 
     @Autowired
-    public ValidarExistenciaRemedioImpl(RemedioRepository remedioRepository, SalvarRemedioUseCase salvarRemedioUseCase) {
+    public ValidarExistenciaRemedioUseCaseImpl(RemedioRepository remedioRepository, SalvarRemedioUseCase salvarRemedioUseCase) {
         this.remedioRepository = remedioRepository;
         this.salvarRemedioUseCase = salvarRemedioUseCase;
     }

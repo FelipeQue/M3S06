@@ -11,19 +11,19 @@ import org.springframework.stereotype.Component;
 public class AdicionarEstoqueUseCaseImpl implements AdicionarEstoqueUseCase {
 
     private final EstoqueRepository estoqueRepository;
-    private final ValidarExistenciaRemedio validarExistenciaRemedio;
+    private final ValidarExistenciaRemedioUseCase validarExistenciaRemedioUseCase;
 
     @Autowired
     public AdicionarEstoqueUseCaseImpl(EstoqueRepository estoqueRepository,
-                                       ValidarExistenciaRemedio validarExistenciaRemedio) {
+                                       ValidarExistenciaRemedioUseCase validarExistenciaRemedioUseCase) {
         this.estoqueRepository = estoqueRepository;
-        this.validarExistenciaRemedio = validarExistenciaRemedio;
+        this.validarExistenciaRemedioUseCase = validarExistenciaRemedioUseCase;
     }
 
     @Override
     public void adicionar(Integer quantidade, Integer remedioId, String remedioNome, Integer remedioDosagemMg) {
         validarQuantidade(quantidade);
-        Remedio remedio = validarExistenciaRemedio.obterRemedio(remedioId, remedioNome, remedioDosagemMg);
+        Remedio remedio = validarExistenciaRemedioUseCase.obterRemedio(remedioId, remedioNome, remedioDosagemMg);
         Estoque estoque = encontrarEstoque(remedio);
         estoque.setQuantidade(estoque.getQuantidade() + quantidade);
         estoqueRepository.save(estoque);
